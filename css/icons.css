@@ -1,0 +1,27 @@
+._icon-link:before {
+  content: "\e900";
+}
+
+._icon-s-github:before {
+  content: "\e901";
+}
+
+._icon-s-instagram:before {
+  content: "\e902";
+}
+
+._icon-slider-arrow-l:before {
+  content: "\e903";
+}
+
+._icon-slider-arrow-r:before {
+  content: "\e904";
+}
+
+._icon-s-linkedin:before {
+  content: "\e905";
+}
+
+._icon-s-twitter:before {
+  content: "\e906";
+}

@@ -1,0 +1,132 @@
+@charset "UTF-8";
+/*Обнуление стилей*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@500;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*------------------*/
+@font-face {
+  font-family: icons;
+  font-display: swap;
+  src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+._icon-link:before {
+  content: "\e900";
+}
+
+._icon-s-github:before {
+  content: "\e901";
+}
+
+._icon-s-instagram:before {
+  content: "\e902";
+}
+
+._icon-slider-arrow-l:before {
+  content: "\e903";
+}
+
+._icon-slider-arrow-r:before {
+  content: "\e904";
+}
+
+._icon-s-linkedin:before {
+  content: "\e905";
+}
+
+._icon-s-twitter:before {
+  content: "\e906";
+}
+
+/*-----Настройка адптивной сетки-----------------------------------*/
+/*----------------------------------------*/
+body .lock {
+  overflow: hidden;
+  touch-action: none;
+}
