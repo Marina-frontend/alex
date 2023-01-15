@@ -1,4 +1,4 @@
-[class*=_icon-]:before {
+%ic {
   font-family: "icons";
   font-weight: normal;
   font-style: normal;
@@ -10,8 +10,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-[class*=_icon-]:before {
-  display: block;
+[class*="_icon-"] {
+  &:before {
+    @extend %ic;
+    display: block;
+  }
 }
 
 ._icon-link:before {

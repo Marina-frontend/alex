@@ -90,12 +90,28 @@ h6 {
 
 /*------------------*/
 @font-face {
-  font-family: icons;
+  font-family: "icons";
   font-display: swap;
   src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
+[class*=_icon-]:before {
+  font-family: "icons";
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  text-decoration: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class*=_icon-]:before {
+  display: block;
+}
+
 ._icon-link:before {
   content: "\e900";
 }
@@ -126,7 +142,40 @@ h6 {
 
 /*-----Настройка адптивной сетки-----------------------------------*/
 /*----------------------------------------*/
+body {
+  font-family: "Inter", sans-serif;
+}
 body .lock {
   overflow: hidden;
   touch-action: none;
 }
+
+/*=====================================================*/
+.title__label {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 2;
+  letter-spacing: 0.625em;
+  color: #656D72;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.title__label::before {
+  content: "";
+  width: 1rem;
+  height: 0.125rem;
+  background-color: rgb(217, 217, 217);
+}
+.title__label:not(:last-child) {
+  margin-bottom: 0.75em;
+}
+.title__value {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 125%;
+  color: #232E35;
+}
+
+/*=======================================*/

@@ -1,0 +1,107 @@
+//файл обнуляющих стилей
+@import "nullstyle.scss";
+
+//Подлючение локальных шрифтов если есть
+@import "fonts/fonts";
+
+//Подключить если есть файл иконочного шрифта
+@import "fonts/icons";
+
+// @import "slick.scss";
+
+//Подключение шрифтов
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@500;700&display=swap');
+
+//Миксины rem  и em
+$fz: 16;
+
+@function rem($size) {
+    $remSize: $size / $fz;
+    @return $remSize * 1rem;
+}
+
+@function em($size, $parrentSize) {
+    $emSize: $size / $parrentSize;
+    @return $emSize * 1em;
+}
+
+//Шрифт по умолчанию
+$fontFamily: 'Inter', sans-serif;
+$fontSize: rem(16);
+
+//Основные цвета
+$mainColor: #232E35; //цвет шрифта
+$greyColor:  #656D72;
+
+
+
+/*-----Настройка адптивной сетки-----------------------------------*/
+
+//Минимальная ширина страницы
+$minWidth: 320;
+//Ширина полотна (макета)
+$maxWidth: 1440;
+//Ширина ограничивающего контейнера
+$maxWidthContainer: 1200;
+//Общий отступ у контейнера
+$containerPadding: 30;
+
+//Ширина срабатывания первого брейкпойнта
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+//Брейк-пойнты
+$pc: em($containerWidth, $fz); //ПК, ноутбуку, некоторые планшеты в горизонтальном положении
+$tablet: em(991.98, $fz); // Плантшеты нектооые тедефоны в горизонтальном положении
+$mobile: em(767.98, $fz); // Телефоны L
+$mobileSmall: em(479.98, $fz); //Телефоны
+
+//Тип адаптива
+//1 = отзывчивыость (у контейнера нет брейкпойнтов)
+//2 = по брейк-пойнам ( контейнер меняет свою ширину по брейк-пойнтам)
+$responsiveType: 1;
+/*----------------------------------------*/
+
+body{
+    //Скролл заблокирован
+    font-family: $fontFamily;
+    .lock{
+        overflow: hidden;
+        touch-action: none;
+    }
+}
+/*=====================================================*/
+//Общие БЭМ, заголовки и т.п.
+
+.title {
+    //title__label
+    &__label {
+        font-weight: 500;
+        font-size: rem(12);
+        line-height: 2;
+        letter-spacing: em(7.5, 12);  
+        color: $greyColor;
+        display: flex;
+        align-items: center;
+        gap: rem(16);
+        &::before {
+            content: "";
+            width: rem(16);
+            height: rem(2);
+            background-color: rgba(217, 217, 217, 1);
+        }
+        &:not(:last-child) {
+            margin-bottom: em(9, 12);
+        }
+    }
+    //title__value
+    &__value {
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 700;
+    font-size: rem(36);
+    line-height: calc( 45 / 36 * 100%);
+    color: #232E35;
+    }
+}
+
+
+/*=======================================*/
