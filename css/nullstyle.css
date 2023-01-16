@@ -60,6 +60,10 @@ button::-moz-focus-inner {
   border: 0;
 }
 
+a {
+  color: inherit;
+}
+
 a,
 a:visited {
   text-decoration: none;
