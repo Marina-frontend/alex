@@ -12,7 +12,8 @@
 //Подключение шрифтов
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@500;700&display=swap');
 
-//Миксины rem  и em
+/*========================================*/
+//Функции rem  и em
 $fz: 16;
 
 @function rem($size) {
@@ -25,6 +26,14 @@ $fz: 16;
     @return $emSize * 1em;
 }
 
+//Для расчета % значения
+@function percent($value1, $value2) {
+    $percentValue: calc($value1 / $value2 * 100%);
+    @return $percentValue;
+}
+
+/*===========================================*/
+
 //Шрифт по умолчанию
 $fontFamily: 'Inter', sans-serif;
 $fontSize: rem(16);
@@ -36,7 +45,7 @@ $purpleColor: #7E74F1;
 
 
 
-/*-----Настройка адптивной сетки-----------------------------------*/
+/*=======Настройка адптивной сетки============-*/
 
 //Минимальная ширина страницы
 $minWidth: 320;
@@ -68,8 +77,115 @@ $responsiveType: 1;
 
 //     }
 // }
-/*----------------------------------------*/
 
+/*===============Ограничивающий контейнер======================*/
+
+/*Стили будут применяться дл всех классов содержащих *__container 
+Например, header__container 
+*/
+
+@if ($responsiveType==1) {
+    //отзывчивая
+    [class*="__container"] {
+        @if ($maxWidthContainer>0) {
+            max-width: rem($containerWidth);
+            margin: 0 auto;
+        }
+        @if ($containerPadding>0) {
+            @if ($maxWidthContainer>0) {
+                padding: 0 rem(calc($containerPadding / 2));
+            } 
+        }
+    }
+} @else {
+    //по брейк-поинтам
+    [class*="__container"] {
+        margin: 0 auto;
+        @if ($maxWidthContainer>0) {
+            max-width: rem($maxWidthContainer);
+            box-sizing: content-box;
+        } @else {
+            @if ($containerPadding>0){
+                padding: 0 rem(math.div($containerPadding, 2));
+            }
+        }
+        @media(max-width: $pc) {
+            max-width: rem(970);
+        }
+    }
+}
+// Стили иконки меню Burger
+.icon-menu{
+    display: none;
+    @media(max-width: $mobile){
+        display: block;
+        position: relative;
+        width: rem(30);
+        height: rem(18);
+        flex: 0 0 rem(30);
+        background-color: #c7c4e5;
+        z-index: 5;
+        @media (any-hover: none) {
+            cursor: default;
+        }
+        span, 
+        &::before,
+        &::after {
+            content: "";
+            transition: all 0.3s ease 0s;
+            right: 0;
+            position: absolute;
+            width: 100%;
+            height: rem(2);
+            background-color: #000;
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+
+        span{
+            top: calc(50% - rem(1));
+        }
+    }
+}
+
+.icon-menu.menu-open{
+    span {
+        width: 0
+    }
+
+    &::before,
+    &::after {
+    }
+
+    &::before{
+        top: calc(50% - rem(1));
+        transform: rotate(-45deg);
+    }
+
+    &::after {
+        bottom: calc(50% - rem(1));
+        transform: rotate(45deg);
+    }
+}
+
+//FullScreen
+.fs {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    overflow: auto;
+}
+
+/*-------------------------------*/
 body{
     //Скролл заблокирован
     font-family: $fontFamily;
@@ -80,13 +196,14 @@ body{
     }
 }
 
-.container{
-    padding: 0 15px;
-    max-width: rem($maxWidthContainer);
-    margin: 0 auto;
-}
 /*=====================================================*/
 //Общие БЭМ, заголовки и т.п.
+.page {
+
+    &__main {
+       
+    }
+}
 
 .title {
     //title__label
@@ -117,68 +234,42 @@ body{
     font-size: rem(36);
     line-height: calc( 45 / 36 * 100%);
     color: $mainColor;
+        span {
+            color: $purpleColor;
+        }
+        &_big{
+            font-size: rem(44);
+            line-height: calc( 55 / 44 * 100%);
+        }
     }
 }
-/*----------------------------------*/
-//Burger
-.icon-menu{
-    display: none;
-    @media(max-width: $mobile){
-        display: block;
-        position: relative;
-        width: rem(30);
-        height: rem(18);
-        flex: 0 0 rem(30);
-        background-color: $purpleColor;
-        z-index: 5;
-        @media (any-hover: none) {
-            cursor: default;
+
+.text {
+    line-height: calc(30 / 16 * 100%);
+    p {
+        &:not(:last-child) {
+            marg 
         }
-        span, 
-        &::before,
-        &::after {
-            content: "";
-            transition: all 0.3s ease 0s;
-            right: 0;
-            position: absolute;
-            width: 100%;
-            height: rem(2);
-            background-color: #000;
-        }
+    }
+}
 
-        &::before {
-            top: 0;
-        }
-
-        &::after {
-            bottom: 0;
-        }
-
-        span{
-            top: calc(50% - rem(1));
-        }
-
-        .menu-open & {
-            span {
-                width: 0
-            }
-
-            &::before,
-            &::after {
-            }
-
-            &::before{
-                top: calc(50% - rem(1));
-                transform: rotate(-45deg);
-            }
-
-            &::after {
-                bottom: calc(50% - rem(1));
-                transform: rotate(45deg);
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: rem(34);
+    row-gap: rem(5);
+    &__link {
+        font-size: rem(22);
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $purpleColor;
             }
         }
     }
 }
+
 
 /*=========HEADER==============================*/
 .header {
@@ -193,6 +284,8 @@ body{
         align-items: center;
         justify-content: space-between;
         gap: rem(15);
+        padding-top: rem(5);
+        padding-bottom: rem(5);
         min-height: 123px;
         @media(max-width: $mobile) {
             min-height: 60px;
@@ -214,8 +307,6 @@ body{
         justify-content: center;
         align-items: center;
         padding: rem(15) rem(24);  
-        width: 102px;
-        height: 49px;
         border: rem(1) solid #F1F1F1;
         border-radius: rem(8);
         font-size: rem(14);
@@ -227,6 +318,12 @@ body{
                 border: rem(1) solid $purpleColor;
                 color:#fff;
             }
+        }
+        @media(max-width: $mobile) {
+            padding: rem(10) rem(15);  
+            border: rem(1) solid $mainColor;
+            background-color: $mainColor;
+            color: #fff;
         }
     }
 
@@ -245,12 +342,23 @@ body{
         @media(max-width: $mobile) {
             position: fixed;
             top:0;
-            left: 0;
+            left: -100%;
             width: 100%;
             height: 100%;
             overflow: auto;
+            transition: all 0.3s ease 0s;
             background-color: $purpleColor;
             padding: rem(90) rem(15) rem(30) rem(15);
+            &::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: rem(60);
+                background-color: #c7c4e5;
+                z-index: 2;
+            }
         }
     }
 
@@ -289,8 +397,106 @@ body{
         }
     }
 }
-.icon-menu {
+
+.menu__body.menu-open{
+        left:0;
+        &::before {
+            left: 0;
+        }
 }
 
-/*---------------------------------------------------------------------*/
+
+/*=========Main-section======================================*/
+
+.main-section {
+
+    &__container {
+        display: grid;
+        min-height: 100%;
+        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__content {
+    }
+
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: rem(32);
+        }
+    }
+
+    &__text {
+        &:not(:last-child) {
+            margin-bottom: rem(40);
+        }
+    }
+
+    &__decor{
+    }
+
+    &__image {
+
+    }
+}
+
+.decor-main-section {
+    justify-self: end;
+    max-width: 336px;
+    width: 100%;
+
+    &__box {
+        position: relative;
+        padding-bottom: percent(400, 336);
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: rem(16);
+        }
+
+        &::before {
+            z-index: 1;
+            background-color: #7E74F1;
+            transform: rotate(-9.55deg);
+        }
+
+        &::after {
+            z-index: 2;
+            background: #EAE6FE url(../images/main/lines.svg) top right / 58% no-repeat;
+            overflow: hidden;
+        }
+    }
+
+    &__image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: rem(16);
+        overflow: hidden;
+    }
+
+    &__picture {
+        z-index: 3;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        max-width: 100%;
+    }
+}
+
+.main-section {
+
+    &__social {
+    }
+}
+
+
+/*===========================================*/
 

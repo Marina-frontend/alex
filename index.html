@@ -1,45 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex</title>
-    <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-    <header>
-
-    </header>
-    <main class="page">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alex</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
         <header class="header">
-            <div class="header__container container">
-                <a href="#" class="header__logo"><img src="images/logo.svg" alt="Logo"></a>
-                <div class="header__menu menu">
-                    <nav class="menu__body">
-                        <ul class="menu__list">
-                            <li class="menu__item"><a href="" class="menu__link">Services</a></li>
-                            <li class="menu__item"><a href="" class="menu__link">Portfolios</a></li>
-                            <li class="menu__item"><a href="" class="menu__link">Experience</a></li>
-                            <li class="menu__item"><a href="" class="menu__link">Blog</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="header__actions">
-                    <a href="#" class="header__button">Resume</a>
-                    <button class="menu__icon icon-menu"><span></span></button>
-                </div>
+            <div class="header__container">
+            <a href="#" class="header__logo"
+                ><img src="images/logo.svg" alt="Logo"
+            /></a>
+            <div class="header__menu menu">
+                <nav class="menu__body">
+                    <ul class="menu__list">
+                        <li class="menu__item">
+                            <a href="" class="menu__link">Services</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="" class="menu__link">Portfolios</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="" class="menu__link">Experience</a>
+                        </li>
+                        <li class="menu__item"><a href="" class="menu__link">Blog</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header__actions">
+                <a href="#" class="header__button">Resume</a>
+                <button class="menu__icon icon-menu"><span></span></button>
+            </div>
             </div>
         </header>
-        <!-- <div class="title">
-            <div class="title__label">MY WORKS</div>
-            <h2 class="title__value">Featured Portfolios
-            </h2>
-        </div> -->
-    </main>
-    <footer>
+        <main data-fp class="page">
+            <section data-fp-section class="page__main main-section fs">
+            <div class="main-section__container">
+                <div class="main-section__content">
+                <div class="main-section__title title">
+                    <div class="title__label">MY NAME IS</div>
+                    <h1 class="title__value title__value_big">Alex <span>Smith.</span></h1>
+                </div>
+                <div class="main-section__text text">
+                    <p> Creative front-end developer with more than +5 years of
+                        experience in enterprise companies and startups. Proficient in
+                        JavaScript, Angular, and React. Passionate about UI/UX
+                    </p>
+                </div>
+                <div class="main-section__social social">
+                <a href="" class="social__link _icon-s-instagram"></a>
+                <a href="" class="social__link _icon-s-github"></a>
+                <a href="" class="social__link _icon-s-twitter"></a>
+                <a href="" class="social__link _icon-s-linkedin"></a>
+                </div>
+            </div>
+            <div class="main-section__decor decor-main-section">
+                <div class="decor-main-section__box">
+                    <div class="decor-main-section__image">
+                        <img class="decor-main-section__picture" src="images/main/picture.png" alt="picture" />
+                    </div>
+                </div>
+            </div>
+            </div>
+            </section>
 
-    </footer>
-    <script src="script/script.js"></script>
-</body>
+        </main>
+        <footer></footer>
+        <!--jquery -->
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
+        ></script>
+        <script src="js/script.js"></script>
+    </body>
 </html>
