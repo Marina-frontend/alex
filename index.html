@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Alex</title>
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet"  href="fullpage.css" />
     </head>
     <body>
         <header class="header">
@@ -35,8 +36,8 @@
             </div>
             </div>
         </header>
-        <main data-fp class="page">
-            <section data-fp-section class="page__main main-section fs">
+        <main class="page">
+            <section class="page__main main-section fs">
             <div class="main-section__container">
                 <div class="main-section__content">
                 <div class="main-section__title title">
@@ -65,7 +66,37 @@
             </div>
             </div>
             </section>
-
+            <section class="page__services services fs">
+                <div class="services__container">
+                    <div class=" services__title title">
+                        <div class="title__label">SERVICES</div>
+                        <h2 class="title__value">Specialized in
+                        </h2>
+                    </div>
+                    <div class="services__items">
+                        <article class="services__item item-services">
+                            <div class="item-services__icon"><img src="images/services/01.svg" alt=""></div>
+                            <h4 class="item-services__title">UI/UX Design</h4>
+                            <div class="item-services__text">Turn what you have in mind of
+                                a digital product into reality. For any platform you consider.</div>
+                        </article>
+                        <article class="services__item item-services">
+                            <div class="item-services__icon"><img src="images/services/02.svg" alt=""></div>
+                            <h4 class="item-services__title">Application Development</h4>
+                            <div class="item-services__text">Standard designing, building,
+                                and implementing your applications with documentation.
+                            </div>
+                        </article>
+                        <article class="services__item item-services">
+                            <div class="item-services__icon"><img src="images/services/03.svg" alt=""></div>
+                            <h4 class="item-services__title">Web Development</h4>
+                            <div class="item-services__text">Create and maintain 
+                                your websites and also take care of its performance
+                                and traffic capacity.</div>
+                        </article>
+                    </div>
+                </div>
+            </section>
         </main>
         <footer></footer>
         <!--jquery -->
@@ -74,5 +105,6 @@
             src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
         ></script>
         <script src="js/script.js"></script>
+        
     </body>
 </html>

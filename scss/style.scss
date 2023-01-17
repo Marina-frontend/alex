@@ -72,10 +72,9 @@ $responsiveType: 1;
 
 
 //Mixin 
-// @mixin adaptiveValue($type, $startSize, $keepSize, $minSize, $containerWidth, $minWidth){
-//     @if $type == "gap" {
+// @mixin adaptiveValue($type, $maxtSize,  $minSize){
 
-//     }
+
 // }
 
 /*===============Ограничивающий контейнер======================*/
@@ -90,6 +89,8 @@ $responsiveType: 1;
         @if ($maxWidthContainer>0) {
             max-width: rem($containerWidth);
             margin: 0 auto;
+            min-height: 100%;
+            width: 100%;
         }
         @if ($containerPadding>0) {
             @if ($maxWidthContainer>0) {
@@ -176,13 +177,9 @@ $responsiveType: 1;
 
 //FullScreen
 .fs {
-    position: fixed;
     width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    z-index: 10;
-    overflow: auto;
+    min-height: 100vh;
+    display: flex;
 }
 
 /*-------------------------------*/
@@ -201,7 +198,9 @@ body{
 .page {
 
     &__main {
-       
+    }
+
+    &__services {
     }
 }
 
@@ -248,7 +247,7 @@ body{
     line-height: calc(30 / 16 * 100%);
     p {
         &:not(:last-child) {
-            marg 
+            margin-bottom: rem(15); 
         }
     }
 }
@@ -278,6 +277,7 @@ body{
     top: 0;
     left: 0;
     z-index: 100;
+    background-color: rgba(255, 255, 255, 0.75);
 
     &__container {
         display: flex;
@@ -412,9 +412,15 @@ body{
 
     &__container {
         display: grid;
-        min-height: 100%;
         align-items: center;
         grid-template-columns: repeat(2, 1fr);
+        padding-top: rem(80);
+        padding-bottom: rem(30);
+        column-gap: rem(25);
+        @media (max-width: $mobile) {
+            grid-template-columns: auto;
+            row-gap: rem(20);
+        }
     }
 
     &__content {
@@ -441,9 +447,18 @@ body{
 }
 
 .decor-main-section {
-    justify-self: end;
     max-width: 336px;
-    width: 100%;
+    margin: 0 rem(22);
+    justify-self: center;
+    @media(min-width:$mobile) {
+        justify-self: end;
+        width: 100%;
+    }
+    @media(max-width: $mobile) {
+        max-width: rem(336);
+        width: 100%;
+        min-width: rem(224);
+    }
 
     &__box {
         position: relative;
@@ -489,6 +504,7 @@ body{
         left: 0;
         max-width: 100%;
     }
+
 }
 
 .main-section {
@@ -498,5 +514,75 @@ body{
 }
 
 
-/*===========================================*/
+/*=======Services====================================*/
 
+.services {
+    background-color: #FBFBFB;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: rem(30);
+        padding-top: rem(80);
+    }
+
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: rem(100);
+            @media (max-width: $mobile) {
+                margin-bottom: rem(30);
+            }
+        }
+    }
+
+    &__items {
+        display: grid;
+        width: 100%;
+        gap: rem(56);
+        grid-template-columns: repeat(auto-fill, minmax( rem(280), 1fr));
+    }
+
+    &__item {
+    }
+}
+
+.item-services {
+    border-radius: rem(8);
+    background-color: #fff;
+    padding: rem(50);
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    @media(max-width: $mobile) {
+        padding: rem(15);
+    }
+    &__icon {
+        width: rem(56);
+        height: rem(56);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: rem(16);
+        background-color: #F5F3FE;
+        &:not(:last-child) {
+            margin-bottom: rem(24);
+        }
+    }
+
+    &__title {
+        font-weight: 500;
+        line-height: calc( 20 / 16 * 100%);
+        &:not(:last-child) {
+            margin-bottom: rem(24);
+        }
+    }
+
+    &__text {
+        font-size: 14;
+        line-height: calc (24 / 14 * 100%);
+    }
+}
+
+
+/*==================================*/
