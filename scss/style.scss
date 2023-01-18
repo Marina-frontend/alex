@@ -115,6 +115,21 @@ $responsiveType: 1;
         }
     }
 }
+
+/*Стили будут применяться для всех классов *-ibg. Например, main__image-ibg*/
+[class*="-ibg"] {
+    position: relative;
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+}
+
+
 // Стили иконки меню Burger
 .icon-menu{
     display: none;
@@ -202,8 +217,11 @@ body{
 
     &__services {
     }
-}
 
+    &__portfolio {
+    }
+}
+/*============================*/
 .title {
     //title__label
     &__label {
@@ -242,7 +260,7 @@ body{
         }
     }
 }
-
+/*============================*/
 .text {
     line-height: calc(30 / 16 * 100%);
     p {
@@ -251,7 +269,7 @@ body{
         }
     }
 }
-
+/*============================*/
 .social {
     display: flex;
     flex-wrap: wrap;
@@ -265,6 +283,24 @@ body{
             &:hover {
                 color: $purpleColor;
             }
+        }
+    }
+}
+/*============================*/
+.category-link {
+    display: inline-block;
+    border: 1px solid #F1F1F1;
+    border-radius: rem(4);
+    color: $greyColor;
+    font-size: rem(12);
+    padding: rem(4) rem(8);
+    line-height: percent(15, 12);
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover){
+        &:hover{
+            background-color: $purpleColor;
+            border: rem(1) solid $purpleColor;
+            color:#fff;
         }
     }
 }
@@ -579,10 +615,145 @@ body{
     }
 
     &__text {
-        font-size: 14;
-        line-height: calc (24 / 14 * 100%);
+        font-size: rem(14);
+        line-height: calc(24 / 14 * 100%);
     }
 }
 
 
 /*==================================*/
+.portfolio {
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: rem(30);
+        padding-top: rem(80);
+    }
+
+    &__top {
+        display: flex;
+        gap: rem(20);
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom:rem(144);
+        @media(max-width: $mobile){
+            margin-bottom:rem(30);
+        }
+    }
+
+    &__title {
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+        gap: rem(16);
+    }
+
+    &__arrow {
+        width: rem(40);
+        height: rem(40);
+        border-radius: rem(16);
+        background-color: #EAE6FE;
+        color: #7E74F1;
+        font-size: rem(12);
+        @media(any-hover: hover) {
+            &:hover{
+                background: #b0a5e9;
+            }
+        }
+        &.swiper-button-disabled{
+            opacity: 0.5;
+            cursor: default;
+        }
+        &_left{
+
+        }
+        &_rigth{
+
+        }
+    }
+}
+
+.portfolio {
+
+    &__slider {
+    }
+
+    &__wrapper {
+    }
+
+    &__slide {
+        display: flex;
+        
+    }
+}
+
+.item-portfolio {
+    border: 1px solid #f5f5f5;
+    border-radius: rem(8);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &__image-ibg {
+        overflow: hidden;
+        padding-bottom: percent(295, 361);
+        opacity: 0.5;
+        transition: opacity 0.8s ease 0s;
+        img {
+            object-position: top;
+            transition: transform 0.8s ease 0s;
+        }
+        @media(any-hover: hover) {
+            &:hover {
+                opacity: 1;
+                img{
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    &__body {
+        padding: rem(24);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: rem(16);
+    }
+
+    &__title {
+        flex: 1 1 100%;
+
+    }
+    
+
+    &__link-title {
+        font-weight: 500;
+        line-height: percent(20, 16);
+        transition: color 0.3s ease 0s;
+        @media(any-hover: hover) {
+            &:hover {
+                color: $purpleColor;
+            }
+        }
+    }
+
+    &__category {
+    }
+
+    &__link {
+        transition: color 0.3s ease 0s;
+        @media(any-hover: hover) {
+            &:hover {
+                color: $purpleColor;
+            }
+        }
+    }
+
+}
+
+
