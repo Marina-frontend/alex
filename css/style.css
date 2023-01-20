@@ -606,6 +606,8 @@ body .lock {
   justify-content: center;
   padding-bottom: 1.875rem;
   padding-top: 5rem;
+  min-width: 0;
+  overflow: hidden;
 }
 .portfolio__top {
   display: flex;
@@ -642,7 +644,10 @@ body .lock {
   cursor: default;
 }
 .portfolio__slide {
-  display: flex;
+  max-width: 22.5625rem;
+}
+.portfolio__image img {
+  max-width: 100%;
 }
 
 .item-portfolio {
@@ -651,6 +656,7 @@ body .lock {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-height: 100%;
 }
 .item-portfolio__image-ibg {
   overflow: hidden;
@@ -674,7 +680,12 @@ body .lock {
 .item-portfolio__body {
   padding: 1.5rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1 1 auto;
+}
+.item-portfolio__footer {
+  display: flex;
   align-items: center;
   gap: 1rem;
 }

@@ -630,6 +630,8 @@ body{
         justify-content: center;
         padding-bottom: rem(30);
         padding-top: rem(80);
+        min-width: 0;
+        overflow: hidden;
     }
 
     &__top {
@@ -680,14 +682,22 @@ body{
 .portfolio {
 
     &__slider {
+
     }
 
     &__wrapper {
+
     }
 
     &__slide {
-        display: flex;
+        max-width: rem(361);
+    }
+
+    &__image{
         
+        img{
+            max-width: 100%;
+        }
     }
 }
 
@@ -697,6 +707,7 @@ body{
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    min-height: 100%;
 
     &__image-ibg {
         overflow: hidden;
@@ -720,14 +731,19 @@ body{
     &__body {
         padding: rem(24);
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: rem(16);
+        flex: 1 1 auto;
+    }
+
+    &__footer{
+        display: flex;
         align-items: center;
         gap: rem(16);
     }
 
     &__title {
         flex: 1 1 100%;
-
     }
     
 
