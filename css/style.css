@@ -100,7 +100,7 @@ h6 {
   font-weight: 400;
   font-style: normal;
 }
-[class*=_icon-]:before {
+.navigation-career__title._tab-active::after, [class*=_icon-]:before {
   font-family: "icons";
   font-weight: normal;
   font-style: normal;
@@ -183,7 +183,6 @@ h6 {
     width: 1.875rem;
     height: 1.125rem;
     flex: 0 0 1.875rem;
-    background-color: #c7c4e5;
     z-index: 5;
   }
 }
@@ -282,6 +281,16 @@ body .lock {
 .title__value_big {
   font-size: 2.75rem;
   line-height: 125%;
+}
+@media (max-width: 47.99875em) {
+  .title__value_big {
+    font-size: 2.375rem;
+  }
+}
+@media (max-width: 47.99875em) {
+  .title__value {
+    font-size: 1.75rem;
+  }
 }
 
 /*============================*/
@@ -410,7 +419,7 @@ body .lock {
     left: 0;
     width: 100%;
     height: 3.75rem;
-    background-color: #c7c4e5;
+    background-color: #fff;
     z-index: 2;
   }
 }
@@ -621,10 +630,21 @@ body .lock {
     margin-bottom: 1.875rem;
   }
 }
+@media (max-width: 37.5rem) {
+  .portfolio__top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
 .portfolio__controls {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+@media (max-width: 37.5rem) {
+  .portfolio__controls {
+    justify-content: center;
+  }
 }
 .portfolio__arrow {
   width: 2.5rem;
@@ -643,8 +663,17 @@ body .lock {
   opacity: 0.5;
   cursor: default;
 }
+.portfolio__slider {
+  width: 100%;
+}
+@media (max-width: 40.625rem) {
+  .portfolio__slider {
+    margin-right: -0.9375rem;
+    padding-right: 0.9375rem;
+  }
+}
 .portfolio__slide {
-  max-width: 22.5625rem;
+  width: 100%;
 }
 .portfolio__image img {
   max-width: 100%;
@@ -675,6 +704,11 @@ body .lock {
   }
   .item-portfolio__image-ibg:hover img {
     transform: scale(1.05);
+  }
+}
+@media (any-hover: none) {
+  .item-portfolio__image-ibg {
+    opacity: 1;
   }
 }
 .item-portfolio__body {
@@ -709,4 +743,130 @@ body .lock {
   .item-portfolio__link:hover {
     color: #7E74F1;
   }
+}
+
+/*========Careeer===================================*/
+.career {
+  background-color: #FBFBFB;
+}
+.career__container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-content: center;
+  grid-auto-flow: column;
+  grid-template-rows: auto auto;
+  padding-bottom: 1.875rem;
+  padding-top: 5rem;
+  -moz-column-gap: 9rem;
+       column-gap: 9rem;
+  row-gap: 5rem;
+}
+@media (max-width: 47.99875em) {
+  .career__container {
+    -moz-column-gap: 1.25rem;
+         column-gap: 1.25rem;
+    row-gap: 1.25rem;
+  }
+}
+.career__navigation {
+  display: grid;
+  gap: 0.5625rem;
+}
+.career__content {
+  grid-row: span 2;
+  padding-top: 2rem;
+}
+@media (max-width: 47.99875em) {
+  .career__content {
+    padding-top: 0.9375rem;
+  }
+}
+
+.navigation-career__title {
+  text-align: left;
+  background-color: inherit;
+  padding: 0.875rem 1.5rem;
+  line-height: 118.75%;
+}
+.navigation-career__title._tab-active {
+  display: flex;
+  justify-content: space-between;
+  color: #7E74F1;
+  background-color: #fff;
+  align-items: center;
+}
+.navigation-career__title._tab-active::after {
+  content: "\e904";
+  font-size: 0.75rem;
+}
+
+.content-career__body {
+  display: none;
+}
+.content-career__header {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f1f1f1;
+}
+@media (max-width: 47.99875em) {
+  .content-career__header {
+    padding-bottom: 1.25rem;
+  }
+}
+.content-career__title {
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 127.7777777778%;
+}
+.content-career__title:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.content-career__link-title {
+  text-decoration: underline;
+}
+@media (any-hover: hover) {
+  .content-career__link-title:hover {
+    text-decoration: none;
+  }
+}
+.content-career__location {
+  color: #656D72;
+  font-size: 0.875rem;
+  line-height: 121.4285714286%;
+}
+.content-career__location:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.content-career__time {
+  color: #656D72;
+  font-size: 0.875rem;
+  line-height: 171.4285714286%;
+}
+.content-career__time:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.content-career__main {
+  padding-top: 2rem;
+}
+@media (max-width: 47.99875em) {
+  .content-career__main {
+    padding-top: 1.25rem;
+  }
+}
+.list-content-career__item {
+  color: #656D72;
+  line-height: 118.75%;
+  position: relative;
+  padding-left: 1.75rem;
+}
+.list-content-career__item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.list-content-career__item:before {
+  content: "";
+  background-color: #d9d9d9;
+  width: 0.625rem;
+  height: 0.125rem;
+  position: absolute;
+  left: 0;
+  top: 0.625em;
 }
