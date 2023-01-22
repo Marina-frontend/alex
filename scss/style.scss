@@ -222,6 +222,9 @@ body{
     
     &__career {
     }
+
+    &__blog {
+    }
 }
 /*============================*/
 .title {
@@ -799,18 +802,33 @@ body{
 .career {
     background-color: #FBFBFB;
     &__container {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-content: center;
-        grid-auto-flow: column;
-        grid-template-rows: auto auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding-bottom: rem(30);
         padding-top: rem(80);
+
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
         column-gap: rem(144);
         row-gap: rem(80);
+
+        @media(min-width: $mobile) {
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto 1fr;
+            align-content: center;
+            align-items: start;
+            grid-auto-flow: column;
+        }
+
         @media(max-width: $mobile) {
             column-gap: rem(20);
             row-gap: rem(20);
+
         }
     }
 
@@ -822,11 +840,13 @@ body{
         gap: rem(9);
     }
 
-    &__content {
-        grid-row: span 2;
+    &__content {    
         padding-top: rem(32);
         @media(max-width: $mobile) {
             padding-top: rem(15);
+        }
+        @media(min-width: $mobile) {
+            grid-row: span 2;
         }
 
     }
@@ -839,16 +859,26 @@ body{
         background-color: inherit;
         padding: rem(14) rem(24);
         line-height: percent(19, 16);
+        @media(max-width: $mobile) {
+            border: 1px solid #c5cace;
+        }
         &._tab-active {
             display: flex;
             justify-content: space-between;
             color: $purpleColor;
             background-color: #fff;
             align-items: center;
+            @media(max-width: $mobile) {
+                border: 1px solid #c5cace;
+                background-color: #FBFBFB;
+            }
             &::after {
                 @extend %ic;
                 content: "\e904";
                 font-size: rem(12);
+                @media(max-width: $mobile) {
+                    transform: rotate(90deg);
+                }
             }
         }
     }
@@ -939,3 +969,103 @@ body{
     }
 }
 
+/*=====BLOG===================*/
+
+.blog {
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: rem(30);
+        padding-top: rem(80);
+    }
+
+    &__title {
+        margin-bottom: rem(144);
+        @media(max-width: $mobile) {
+            margin-bottom: rem(30);
+        }
+    }
+
+    &__items {
+        align-self: stretch;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(rem(280), 1fr));
+        gap: rem(40);
+        @media(max-width: $mobile) {
+            gap: rem(20);
+        }
+    }
+
+    &__item {
+    }
+}
+
+
+.item-blog {
+    display: flex;
+    border-radius: rem(8);
+    overflow: hidden;
+    border: 1px solid #f1f1f1;
+    flex-direction: column;
+
+    &__image-ibg {
+        overflow: hidden;
+        padding-bottom: percent(243, 361 );
+        img {
+            transition: transform 0.8s ease 0s;
+        }
+        @media(any-hover: hover) {
+            &:hover {
+                img{
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    &__body {
+        padding: rem(16) rem(16) rem(24) rem(16);
+        display: grid;
+        gap: rem(16);
+    }
+
+    &__title {
+        font-weight: 500;
+        line-height: percent(24, 16);
+        transition: color 0.3 ease 0s;
+        @media(any-hover: hover) {
+            &:hover {
+                color: $purpleColor;
+            }
+        }
+    }
+
+    &__link-title {
+    }
+
+    &__date {
+        padding: rem(4) rem(8);
+        color: $greyColor;
+        font-size: rem(12);
+        line-height: percent(15, 12);
+    }
+
+    &__text {
+    }
+
+    &__link {
+        margin-top: rem(24);
+        text-align: center;
+        transition: color 0.3 ease 0s;
+        @media(any-hover: hover) {
+            &:hover {
+                color: $purpleColor;
+            }
+        }
+    }
+}
+
+/*========================*/
