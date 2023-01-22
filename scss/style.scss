@@ -225,6 +225,9 @@ body{
 
     &__blog {
     }
+
+    &__testimonials {
+    }
 }
 /*============================*/
 .title {
@@ -992,7 +995,7 @@ body{
     &__items {
         align-self: stretch;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(rem(280), 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(rem(280), 1fr));
         gap: rem(40);
         @media(max-width: $mobile) {
             gap: rem(20);
@@ -1068,4 +1071,77 @@ body{
     }
 }
 
-/*========================*/
+/*======testimonials==================*/
+
+.testimonials {
+background-color: #FBFBFB;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: rem(30);
+        padding-top: rem(80);
+    }
+
+    &__title {
+        padding-bottom: rem(132);
+        @media(max-width: $mobile) {
+            padding-bottom: rem(70);
+        }
+    }
+
+    &__items {
+        align-self: stretch;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(rem(280), 1fr));
+        gap: rem(40);
+        @media(max-width: $mobile) {
+            gap: rem(20);
+        }
+    }
+
+    &__item {
+    }
+}
+
+.item-testimonials {
+    background-color: #fff;
+    border-radius: rem(8);
+    display: flex;
+    flex-direction: column;
+    padding: 0 rem(38) rem(24) rem(38);
+    &__avatar-ibg {
+        border-radius: 50%;
+        overflow: hidden;
+        height: rem(96);
+        width: rem(96);
+        align-self: center;
+        transform: translate(0, -50%);
+    }
+
+    &__text {
+        &:not(:last-child){
+            margin-bottom: rem(48);
+            @media(max-width: $mobile) {
+                margin-bottom: rem(20);
+            }
+        }
+    }
+
+    &__name {
+        font-size: rem(14);
+        font-weight: 500;
+        line-height: percent(18, 14);
+        &:not(:last-child) {
+            margin-bottom: rem(9);
+        }
+    }
+
+    &__profession {
+        padding: rem(4) rem(8);
+        color: $greyColor;
+        font-size: rem(12);
+        line-height: percent(15, 12);
+        align-self: flex-start;
+    }
+}
