@@ -231,6 +231,9 @@ body{
 
     &__skills {
     }
+
+    &__contacts {
+    }
 }
 /*============================*/
 .title {
@@ -874,10 +877,10 @@ body{
             color: $purpleColor;
             background-color: #fff;
             align-items: center;
-            @media(max-width: $mobile) {
-                border: 1px solid #c5cace;
-                background-color: #FBFBFB;
-            }
+            // @media(max-width: $mobile) {
+            //     border: 1px solid #c5cace;
+            //     background-color: #FBFBFB;
+            // }
             &::after {
                 @extend %ic;
                 content: "\e904";
@@ -1077,7 +1080,7 @@ body{
 /*======testimonials==================*/
 
 .testimonials {
-background-color: #FBFBFB;
+    background-color: #FBFBFB;
     &__container {
         display: flex;
         flex-direction: column;
@@ -1164,8 +1167,10 @@ background-color: #FBFBFB;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: ;
         padding-bottom: rem(30);
         padding-top: rem(80);
+        overflow: hidden;
     }
 
     &__title {
@@ -1178,14 +1183,18 @@ background-color: #FBFBFB;
 
     &__body {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        gap: rem(40);
+        grid-template-columns: 1fr;
+        @media(min-width: $mobile) {
+            grid-template-columns: 1fr percent(658, 1200);
+        }
     }
 
-    &__timeline {
-     
+    &__timeline { 
     }
 
     &__content {
+        
     }
 }
 
@@ -1253,20 +1262,222 @@ background-color: #FBFBFB;
 }
 
 .content-skills {
-
+    
     &__text {
+        margin-bottom: rem(64);
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
     }
 
     &__items {
+        display: grid;
+        gap: rem(40);
+        @media(max-width: $mobile) {
+            gap: rem(20);
+        }
     }
 
     &__item {
     }
 
     &__label {
+        font-weight: 50;
+        line-height: percent(17, 16);
+        &:not(:last-child) {
+            margin-bottom: rem(16);
+        }
     }
 
     &__line {
+        height: rem(8);
+        width: rem(551);
+        background-color: #F5F3FE;
+        border-radius: rem(2);
+        position: relative;
+        span {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: $purpleColor;
+            border-radius: rem(2);
+        }
     }
 }
+
+/*====CONTACTS===================*/
+
+.contacts {
+    background-color: #FBFBFB;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: rem(30);
+        padding-top: rem(80);
+        overflow: hidden;
+    }
+
+    &__content {
+        display: flex;
+        align-items: flex-start;
+        @media(max-width: $mobile) {
+            flex-direction: column-reverse;
+            align-items: center;
+            width: 100%
+        }
+
+    }
+
+    &__form {
+        flex: 0 1 50%;
+        @media(max-width: $mobile) {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+    }
+
+    &__body {
+        padding-left: rem(105);
+        flex: 0 1 50%;
+        @media(max-width: $mobile) {
+            flex: 0 0 auto;
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+
+    &__list {
+        @media(max-width: $mobile) {
+            margin-bottom: rem(30);
+        }
+    }
+}
+.form {
+    display: grid;
+    gap: rem(16);
+    &__item {
+        &:last-child {
+            padding-top: rem(22);
+        }
+        
+    }
+
+    &__input {
+        width: 100%;
+        height: rem(48);
+        border-radius: rem(8);
+        padding: rem(0) rem(24);
+        background-color: #fff;
+        &::placeholder {
+            color: $greyColor;
+        }
+        &:focus {
+            &::placeholder {
+                color: $mainColor;
+            }
+        }
+    }
+
+    &__button {
+        background-color: $purpleColor;
+        border: 1px solid #EAE6FE;
+        border-radius: rem(8); 
+        width: 100%;
+        padding: rem(16);
+        color: #F5F3F3;
+        transition: background-color 0.3s ease 0s;
+        @media(any-hover: hover) {
+            &:hover {
+                background-color: #6659f5;
+            }
+        }
+    }
+}
+textarea.form__input {
+    height: rem(190);
+    resize: vertical;
+    padding: rem(12) rem(24);
+}
+.list-contacts {
+    display: grid;
+    gap: rem(48);
+    @media(max-width: $mobile) {
+        gap: rem(20);
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: rem(24);
+    }
+
+    &__icon {
+        flex: 0 0 rem(56);
+        height: rem(56);
+        width: rem(56);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #F5F3FE;
+        border-radius: rem(16);
+    }
+
+    &__body {
+    }
+
+    &__title {
+        font-weight: 500;
+        &:not(:last-child) {
+            margin-bottom: rem(4);
+        }
+    }
+
+    &__text {
+        font-size: rem(14);
+        line-height: rem(24);
+        transition: color 0.3s ease 0s;
+        @media(any-hover: hover) {
+            &:hover {
+                color: $purpleColor;
+            }
+        }
+    }
+}
+
+/*=====Footer================*/
+
+.footer {
+    background-color: #fff;
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: rem(15);
+        padding-top: rem(88);
+        padding-bottom: rem(88);
+        @media(max-width: $mobile) {
+            padding-top: rem(20);
+            padding-bottom: rem(20);
+        }
+    }
+
+    &__social {
+        .social__link {
+            color: $greyColor;
+            @media(any-hover: hover) {
+                &:hover {
+                    color: $purpleColor;
+                }
+            }
+        }
+    }
+
+    &__copy {
+        color: $greyColor;
+        font-size: rem(14);
+    }
+}
+
 
