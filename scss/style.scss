@@ -877,10 +877,6 @@ body{
             color: $purpleColor;
             background-color: #fff;
             align-items: center;
-            // @media(max-width: $mobile) {
-            //     border: 1px solid #c5cace;
-            //     background-color: #FBFBFB;
-            // }
             &::after {
                 @extend %ic;
                 content: "\e904";
@@ -1167,7 +1163,6 @@ body{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: ;
         padding-bottom: rem(30);
         padding-top: rem(80);
         overflow: hidden;
@@ -1203,6 +1198,7 @@ body{
     gap: rem(64);
     position: relative;
     padding-left: rem(40);
+    padding-right: rem(20);
     &:before {
         content: "";
         position: absolute;
@@ -1262,7 +1258,8 @@ body{
 }
 
 .content-skills {
-    
+    padding-left: rem(20);
+    padding-right: rem(20);
     &__text {
         margin-bottom: rem(64);
         &:not(:last-child) {
@@ -1291,7 +1288,7 @@ body{
 
     &__line {
         height: rem(8);
-        width: rem(551);
+        max-width: rem(551);
         background-color: #F5F3FE;
         border-radius: rem(2);
         position: relative;

@@ -816,12 +816,6 @@ body .lock {
   background-color: #fff;
   align-items: center;
 }
-@media (max-width: 47.99875em) {
-  .navigation-career__title._tab-active {
-    border: 1px solid #c5cace;
-    background-color: #FBFBFB;
-  }
-}
 .navigation-career__title._tab-active::after {
   content: "\e904";
   font-size: 0.75rem;
@@ -1098,6 +1092,7 @@ body .lock {
   gap: 4rem;
   position: relative;
   padding-left: 2.5rem;
+  padding-right: 1.25rem;
 }
 .timeline:before {
   content: "";
@@ -1150,6 +1145,10 @@ body .lock {
   line-height: 106.25%;
 }
 
+.content-skills {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
 .content-skills__text {
   margin-bottom: 4rem;
 }
@@ -1174,7 +1173,7 @@ body .lock {
 }
 .content-skills__line {
   height: 0.5rem;
-  width: 34.4375rem;
+  max-width: 34.4375rem;
   background-color: #F5F3FE;
   border-radius: 0.125rem;
   position: relative;
@@ -1198,6 +1197,7 @@ body .lock {
   justify-content: center;
   padding-bottom: 1.875rem;
   padding-top: 5rem;
+  overflow: hidden;
 }
 .contacts__content {
   display: flex;

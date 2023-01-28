@@ -9,7 +9,7 @@ function openTab(evt, CompanyName) {
       tabcontent[i].style.display = "none";
     }
 
-    // Get all elements with class="navigation-career__title" and remove the class "_tab-activee"
+    // Get all elements with class="navigation-career__title" and remove the class "_tab-active"
     tablinks = document.getElementsByClassName("navigation-career__title");
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace("_tab-active", "");
@@ -17,5 +17,6 @@ function openTab(evt, CompanyName) {
   
     // Show the current tab, and add an "_tab-active" class to the button that opened the tab
     document.getElementById(CompanyName).style.display = "block";
-    evt.currentTarget.className += "_tab-active";
+    evt.currentTarget.className += " _tab-active";
   }
+
