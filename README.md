@@ -1,2 +1,2 @@
 <h1 align="center">Personal web-page "Alex"</h1>
-<p align="center"><img src="mainscreenAlex.jpg" alt="main screen" style="width: 300px"></p>
+<p align="center"><img src="mainscreenAlex.jpg" alt="main screen" style="width: 500px"></p>
